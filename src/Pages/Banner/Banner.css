@@ -1,0 +1,72 @@
+.banner-container{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* modal */
+
+.banner-container .modal{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.banner-container .modal .inputs{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+.banner-container .modal .inputs .inputName,
+.banner-container .inputs .inputButton{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.banner-container .modal .image-bannerLink{
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.banner-container .modal .image{
+  width: 100%;
+  min-width: 300px;
+  height: fit-content;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 2px solid var(--input-border-color);
+  border-radius: 3px;
+  padding: 7px;
+  cursor: pointer;
+}
+.banner-container .modal .image.selectedImage{
+  border: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+.banner-container .modal .image.selectedImage img{
+  width: 100%;
+  max-width: 300px;
+  /* max-width: 100%; */
+  border-radius: 5px;
+}
+.banner-container .modal .image.selectedImage button{
+  background-color: red;
+}
+.banner-container .modal .image >div{
+  display: flex;
+  flex-direction: column;
+}
+
+.banner-container .modal .image-bannerLink input{
+  height: fit-content;
+  width: calc(95%/2);
+  min-width: 300px;
+  flex: 1;
+}

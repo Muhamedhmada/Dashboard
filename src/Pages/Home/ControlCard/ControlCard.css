@@ -1,0 +1,26 @@
+.controlCard-container{
+  display: flex;
+  gap: 10px 0;
+  justify-content: space-between;
+  /* margin-bottom: 50px; */
+  flex-wrap: wrap;
+}
+.controlCard-container .card{
+  width: calc(96%/4);
+  min-width: 250px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #eee;
+  padding: 20px 20px;
+}
+.controlCard-container .card .info{
+  display: flex;
+  flex-direction: column;
+}
+.controlCard-container .card .info p{
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: bold;
+}

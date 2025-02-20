@@ -1,0 +1,20 @@
+.richText-container{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+.richText-container .content{
+  display: flex;
+  justify-content: space-between;
+}
+.richText-container .btns{
+  display: flex;
+  gap: 10px;
+}
+.richText-container .btns button{
+  padding: 10px !important;
+}
+.richText-container >button{
+  align-self: start;
+}

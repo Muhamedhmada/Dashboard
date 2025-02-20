@@ -1,0 +1,65 @@
+.customHeader{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px 0;
+}
+.customHeader .header{
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+.customHeader .header h2{
+  /* font-size: 40px; */
+  font-weight: 800;
+  line-height: 50px;
+}
+.customHeader .header p{
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: capitalize;
+  line-height: 30px;
+}
+.customHeader .header .search{
+  margin-top: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--input-border-color);
+  border-radius: 3px;
+}
+.customHeader .header .search input{
+  padding:15px 10px;
+  border: none;
+  flex: 1;
+
+}
+.customHeader .header .search .icon{
+  width: 60px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-container input{
+  width: 100%;
+}
+.customHeader .btns{
+  /* flex: 1; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-start;
+}
+.customHeader .btns button{
+  flex: 1;
+  min-width: fit-content;
+  padding: 15px 30px;
+  background-color: var(--primary-color) ;
+  color: white;
+  text-transform: uppercase;
+}
+.customHeader .btns button:nth-child(1){
+  background-color:var(--fifth-color) ;
+  color: var(--primary-color);
+}

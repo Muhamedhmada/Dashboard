@@ -1,0 +1,9 @@
+:root{
+  --primary-color:rgb(13, 219, 13);
+  --secondary-color:black;
+  --third-color:white;
+  --fourth-color:#eee;
+  --fifth-color:rgb(245, 239, 229);
+  --input-border-color:rgb(202, 184, 184);
+  --input-color:black;
+}

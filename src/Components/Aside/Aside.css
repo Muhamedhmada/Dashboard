@@ -1,0 +1,137 @@
+.aside-container {
+  position: fixed; /* Keep it fixed for a sticky sidebar */
+  z-index: 1; /* Ensure it's below the navbar if needed */
+  left: 0;
+  top: 0;
+  /* //Sidebar width */
+  width: 280px; 
+  height: 100vh; /* Full height */
+  background-color: var(--third-color);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+}
+.aside-container.closed {
+  transform: translateX(-280px); /* Hide sidebar when closed */
+}
+.aside-container aside{
+  width: 280px;
+  height: calc(100vh - 80px);
+  background-color: var(--third-color);
+  /* height: 100vh; */
+  border: 1px solid var(--fourth-color);
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+
+  /* background-color: red; */
+}
+.aside-container aside.closed{
+  grid-template-columns: 0 1fr;
+}
+.aside-container aside .image{
+  border-bottom: 1px solid var(--fourth-color);
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aside-container aside ul{
+  display: flex;
+  flex-direction: column;
+}
+.aside-container aside ul li{
+  /* direction: rtl; */
+  font-weight: bold;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  transition: .3s;
+  cursor: pointer;
+}
+.aside-container aside ul li a{
+  color: var(--primary-color);
+  width: 100%;
+}
+.aside-container aside ul li:hover{
+  background-color: rgba(43, 187, 43, 0.26);
+  background-color: var(--fourth-color);
+  color: var(--primary-color);
+}
+
+.aside-container aside ul li.website{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.aside-container aside ul li a{
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  gap: 10px;
+}
+.aside-container aside ul.webLinks{
+  height: 0;
+  padding: 0px;
+  overflow: hidden;
+  transition: height .3s ease-in ,padding .3s ease-in;
+  overflow-y: auto;
+}
+.aside-container aside ul.webLinks.open{
+  height: 280px;
+  padding: 0 10px;
+}
+
+.aside-container aside ul li .icon{
+  position: absolute;
+  right: 10px;
+}
+
+/*  -------------icon------------- */
+.openIcon , .closeIcon{
+  background-color: var(--primary-color);
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  border-radius: 50%;
+  transform: translate(-50% , -50%);
+  position: fixed;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: left ease-in .3s;
+  z-index: 999999999999999999;
+}
+.closeIcon.closed{
+  left: 200px;
+  top: 50%;
+}
+.closeIcon.opened{
+  top: 50%;
+  left: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

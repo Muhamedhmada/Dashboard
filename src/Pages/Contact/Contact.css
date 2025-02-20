@@ -1,0 +1,96 @@
+.contact-container .header >h2{
+  margin-bottom: 30px;
+}
+.contact-container .location{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.contact-container .location input{
+  flex: 1;
+  /* min-width: 150px; */
+}
+.contact-container .location button{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.contact-container .customer{
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 0;
+  justify-content: space-between;
+}
+.contact-container .customer >div{
+  width: 100%;
+  width: calc(97% / 3);
+  min-width: 400px;
+  /* flex: 1; */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.contact-container .customer >div .icon{
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 10px;
+  border: 1px solid var(--input-border-color);
+}
+.contact-container .customer >div button{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  align-self: flex-start;
+  justify-content: space-between;
+}
+.contact-container .customer >div .input{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+}
+.contact-container .customer >div .input .icons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact-container .customer >div .input div:first-child{
+  flex: 1;
+}
+.contact-container .customer >div .input input{
+  /* width: 100%; */
+  border: none;
+  position: relative;
+  border: 2px solid var(--input-border-color);
+}
+
+.specialInput{
+  position: relative;
+  /* margin-top: 20px; */
+}
+.specialInput input{
+  width: 100%;
+}
+.specialInput label{
+  text-transform: capitalize;
+  position: absolute;
+  left: 10px;
+  background-color: white;
+  color: var(--input-border-color);
+  top: -7.5px;
+  font-size: 15px;
+  z-index: 1;
+}
+.contact-container .specialInput .icon{
+  border: none !important;
+  right: 0;
+}
+.contact-container .specialInput .icons .icon{
+  border: 1px solid var(--input-border-color) !important;
+}

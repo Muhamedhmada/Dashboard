@@ -1,0 +1,26 @@
+/* Default LTR styling */
+body {
+  direction: ltr;
+  text-align: left;
+  /* overflow: hidden; */
+}
+
+/* RTL styles for Arabic */
+html[dir="rtl"] {
+  direction: rtl;
+}
+
+html[dir="rtl"] body {
+  text-align: right;
+}
+html[dir="rtl"] input::placeholder {
+  text-align: right;
+}
+html[dir="rtl"] .icon{
+  left: 20px;
+}
+
+html[dir="rtl"] .content {
+  text-align: right;
+  /* Any additional styles for RTL layout */
+}

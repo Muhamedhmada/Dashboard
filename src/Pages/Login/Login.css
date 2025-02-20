@@ -1,0 +1,74 @@
+.login-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.login-container .content{
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+.login-container .content .image{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.login-container .content form div{
+  display: flex;
+  flex-direction: column;
+}
+.login-container .specialInput{
+  margin: 0;
+}
+.login-container .content form{
+  padding: 20px 20px;
+  border: 2px solid var(--fourth-color);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.login-container .content form p{
+  font-size: 16px;
+  font-weight: 500;
+}
+.login-container .content form .passInput{
+  position: relative;
+  height: 50px;
+}
+.login-container .content form .passInput input{
+  width: 100%;
+  height: 100%;
+}
+.login-container .content form .passInput .icon{
+  position: absolute;
+  top: 50%;
+  transform: translate(-50% , -50%);
+}
+.login-container .content form button{
+  height: 50px;
+  font-size: 18px;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-container .content form button .anticon-spin{
+  margin: 0 !important;
+  color: white !important;
+}
+.login-container .content form span{
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+

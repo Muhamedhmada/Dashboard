@@ -1,0 +1,30 @@
+.client-details p{
+  font-size: 16px;
+  font-weight: 500;
+}
+.orders .modal .client-details{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 20px;
+}
+.orders .modal .client-details >div{
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+.orders .client-details .icon,
+.orders .table-container .icon{
+  width: 35px;
+  height: 35px;
+  padding: 3px;
+  border: 1px solid var(--fourth-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.orders .client-details .links{
+  display: flex;
+  gap: 10px;
+}

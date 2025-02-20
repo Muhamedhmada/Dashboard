@@ -1,0 +1,13 @@
+.modal-container .inputs{
+  display: flex;
+}
+.modal-container .inputs .inputName{
+  width: 100%;
+}
+.modal-container .inputs .inputName input{
+  width: 100%;
+}
+.modal-container .inputs .image{
+  width: 50%;
+
+}

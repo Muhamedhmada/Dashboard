@@ -1,0 +1,60 @@
+.websiteHeader{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+  /* overflow: hidden; */
+}
+.websiteHeader .header{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+.websiteHeader .header >div{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 20px;
+}
+.websiteHeader .header >div a{
+  font-weight: bold;
+  color: var(--primary-color);
+}
+.websiteHeader form{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2%;
+}
+.websiteHeader form div{
+  width: 49%;
+  flex: 1;
+}
+.websiteHeader form div div{
+  width: 100%;
+}
+.websiteHeader button{
+  margin-top: 50px;
+  align-self: flex-start;
+}
+.inputs {
+  display: flex;
+  gap: 2%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.inputs .input{
+  width: calc(98%/2);
+  display: flex;
+  flex-direction: column;
+}
+.inputs .input label{
+  color: var(--input-border-color);
+  font-size: 16px;
+  font-weight: bold;
+}
+.specialInput label{
+  z-index: 1;
+}

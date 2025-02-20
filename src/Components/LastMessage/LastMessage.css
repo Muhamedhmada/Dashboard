@@ -1,0 +1,78 @@
+.lastMessage-container{
+  padding: 20px;
+  border: 1px solid var(--fourth-color);
+  flex: 1;
+  min-width: 400px;
+}
+.lastMessage-container .lastMessage-content{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.lastMessage-container .lastMessage-content .header{
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+}
+.lastMessage-container .lastMessage-content .header .info{
+  display: flex;
+  flex-direction: column;
+}
+.lastMessage-container .lastMessage-content .header .info p{
+  font-weight: bold;
+  font-size: 18px;
+  line-clamp: 3;
+  -webkit-line-clamp: 2;
+  line-break: strict;
+  /* word-break: keep-all; */
+}
+.lastMessage-container .lastMessage-content .header button{
+  padding: 20px;
+  width: 105px;
+  /* padding-top: 0; */
+  /* flex: 1;
+  
+   */
+  background-color: var(--primary-color);
+  color: var(--third-color);
+  align-items: flex-start;
+  align-self: flex-start;
+  height: fit-content;
+}
+
+
+
+
+/* antd */
+
+.lastMessage-container .lastMessage-content table .ant-table-cell{
+  background-color: transparent;
+}
+
+.lastMessage-container .lastMessage-content .ant-pagination-item,
+.lastMessage-container .lastMessage-content .anticon-left,
+.lastMessage-container .lastMessage-content .anticon-right{
+  background-color: var(--third-color);
+  color: black !important;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  border: 1px solid var(--fourth-color);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lastMessage-container .lastMessage-content .ant-pagination-item a{
+  font-weight: bold;
+}
+.lastMessage-container .lastMessage-content .ant-pagination-item-active{
+  background-color: var(--primary-color);
+}
+.lastMessage-container .lastMessage-content .ant-pagination-item-active a{
+  color: var(--third-color) !important;
+}
+
+.lastMessage-container .lastMessage-content .anticon-left a{
+  color: black;
+}

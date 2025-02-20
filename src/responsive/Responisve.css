@@ -1,0 +1,103 @@
+@media (max-width:991px) {
+  /* contact page */
+  .contact-container .customer >div{
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-container .header .btns button{
+    flex: 1;
+  }
+
+}
+@media (max-width:768px) {
+  .websiteHeader form div{
+    flex: 1 !important;
+    width: 100% !important;
+  }
+  .inputs .input{
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+@media (max-width:620px) {
+  .login-container .content{
+    width: 400px !important;
+  }
+  
+}
+@media (max-width:676px) {
+  .modal{
+    min-width: 95% !important;
+  }
+}
+@media (max-width:467px) {
+  /* login page */
+  .login-container .content{
+    width: 95% !important;
+  }
+  /* aside and navbar and page-content */
+  .aside-container{
+    z-index: 99 !important;
+  }
+  .navbar-container{
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+  .pageContent{
+    width: 100% !important;
+    left: auto !important;
+    right: auto !important;
+  }
+  
+  input{
+    min-width: 280px !important;
+    max-width: 100% !important;
+  }
+  /* contact */
+  .contact-container .customer >div .input input{
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .contact-container .customer >div{
+    min-width: 300px !important;
+  }
+  .nav-side .navbar-container .admin .position{
+    display: none;
+    background-color: red;
+  }
+}
+@media (max-width:376px) {
+  /* modal btns */
+  .modalBtns .btns{
+    flex: 1;
+  }
+  .customHeader button{
+    width: 100% !important;
+  }
+}
+@media (max-width:321px) {
+  .customHeader .search{
+    width: 100% !important;
+  }
+  input{
+    min-width: 100% !important;
+  }
+  /* modal */
+  .modal .btnCloseModal{
+    right: 0 !important;
+  }
+
+  /* contact */
+  .contact-container .customer >div{
+    min-width: 100% !important;
+  }
+  .contact-container .customer >div .input input{
+    min-width: 200px !important;
+    max-width: 100% !important;
+  }
+}
+

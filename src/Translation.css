@@ -1,0 +1,108 @@
+html[dir="rtl"] {
+  direction: rtl;
+}
+
+html[dir="rtl"] body {
+  text-align: right;
+  direction: rtl;
+}
+
+html[dir="rtl"] .content {
+  text-align: right;
+  /* Any additional styles for RTL layout */
+}
+
+/* input password */
+
+html[dir="rtl"] .passInput .icon{
+  left: 2px;
+}
+html[dir="ltr"] .passInput .icon{
+  right: 2px;
+}
+/* special input */
+html[dir="rtl"] .specialInput label{
+  left: auto !important;
+  right: 10px;
+}
+
+html[dir="rtl"] .login-container .passInput .icon{
+  left: 30px;
+}
+html[dir="rtl"] table th ,
+html[dir="rtl"] table tr td{
+  text-align: right;
+}
+/* aside */
+html[dir="rtl"] aside ul li{
+  direction: rtl;
+  text-align: right !important;
+}
+html[dir="rtl"] .navbar-container{
+  direction: rtl;
+}
+html[dir="rtl"] .controlCard-container{
+  direction: rtl;
+}
+html[dir="rtl"] .newOrder-container{
+  direction: rtl;
+}
+
+
+/* aside */
+html[dir="rtl"] .navbar-container{
+  transition: width 0.3s ease-in, right .3s ease-in; 
+  width: 97%;
+  left: 0;
+}
+html[dir="rtl"] .navbar-container.close{
+  width: calc(97% - 280px);
+  left: 0;
+  right: 280px;
+}
+html[dir="rtl"] .aside-container{
+  right: 00px;
+  left: auto;
+}
+html[dir="rtl"] .pageContent{
+  right: 0;
+  left: auto;
+  transition:right 0.3s ease-in , width 0.3s ease-in ;
+}
+html[dir="rtl"] .pageContent.close{
+  right: 140px;
+  left: 0;
+}
+html[dir="rtl"] .aside-container aside ul li .icon{
+  position: absolute;
+  left: 10px;
+  right: auto;
+}
+html[dir="rtl"] .closeIcon{
+  right: 200px;
+  top: 50%;
+  transition: right ease-in .3s;
+}
+html[dir="rtl"] .closeIcon.opened{
+  top: 50%;
+  right: 0px;
+} 
+html[dir="rtl"] .table-container .pagination select{
+  background-position: left 10px center;
+}
+html[dir="rtl"] .aside-container.closed{
+  transform: translateX(5000px) !important;
+  width: 0;
+}
+
+/* modal */
+html[dir="rtl"] .modal .btnCloseModal{
+  left:0px;
+  right: auto;
+}
+/* contact us page */
+[dir="rtl"] .contact-container .specialInput .icon{
+  right: auto !important;
+  left: 2px;
+}
+

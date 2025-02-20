@@ -1,0 +1,9 @@
+.newOrder-container{
+  padding: 20px;
+  border: 1px solid var(--fourth-color);
+}
+.newOrder-container .newOrder-content{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
