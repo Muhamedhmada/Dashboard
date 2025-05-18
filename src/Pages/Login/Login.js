@@ -9,15 +9,17 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { Spin } from 'antd';
 import { ToastContainer, toast } from 'react-toastify';
 import LanguageButtons from "../../Components/LanguageButtons/LanguageButtons.js";
-
+import logo from "../../Assets/Images/logo_converted.jpg";
 function Login() {
   const nav = useNavigate("");
   const { t } = useTranslation(); // Get the translation function from i18next
   const [pass, showPass] = useState(false);
   const [userData , setUserData] = useState({
-    mailValue:"",
-    passValue:""
+    mailValue:"admin@gmail.com",
+    passValue:"12345678"
   })
+
+
 
   const [loader , setLoader] = useState(false)
 
@@ -45,7 +47,6 @@ function Login() {
           nav("/home");
         }
         setLoader(false)
-
       })
       .catch((error) => {
         toast.error(t("passError"))
@@ -64,7 +65,9 @@ function Login() {
       <div className="content">
         <div className="image">
           <img
-            src="https://last-version-of-store.vercel.app/static/media/logo.0aac528f8ddea5e58747.png"
+            src={logo}
+            style={{height:"78px", width:"238px"}}
+            // src="https://last-version-of-store.vercel.app/static/media/logo.0aac528f8ddea5e58747.png"
             alt="Logo"
           />
         </div>
@@ -78,6 +81,7 @@ function Login() {
             <input
               id="email"
               type="email"
+              value={userData.mailValue}
               onChange={(e) => setUserData((prev)=>({...prev,mailValue:e.target.value}))}
             />
           </div>
@@ -85,6 +89,7 @@ function Login() {
             <label htmlFor="pass">{t("password")}</label>
             <input
               id="pass"
+              value={userData.passValue}
               onChange={(e) =>  setUserData((prev)=>({...prev,passValue:e.target.value}))}
               type={pass ? "text" : "password"}
             />

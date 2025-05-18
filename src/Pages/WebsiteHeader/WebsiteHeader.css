@@ -55,6 +55,9 @@
   font-size: 16px;
   font-weight: bold;
 }
+.websiteHeader .specialInput{
+  margin: 15px 0;
+}
 .specialInput label{
   z-index: 1;
 }

@@ -28,6 +28,8 @@ function Banner() {
   const [loading , setLoading] = useState(false)
   const [searchValue , setSearchValue] = useState("")
   const ref = useRef()
+  // rearrange btn
+  const [isReArrange , setIsReArrange] = useState(false)
   // row data
   const [rowData , setRowData] = useState()
   // requested data
@@ -45,7 +47,7 @@ function Banner() {
   const [image , setImage] = useState(null)
 
 
-  
+
   // function to get data
   const getData = () => {
     setLoading(true)
@@ -79,6 +81,18 @@ function Banner() {
 
     console.log(...formData)
 
+    if(description.en === "" ||
+    description.ar === "" ||
+    description.de === ""){
+      toast.error(t("descRequiredProduct"))
+      return
+    }
+    if(title.en === "" ||
+    title.ar === "" ||
+    title.de === ""){
+      toast.error(t("nameRequiredProduct"))
+      return
+    }
     // return
     setLoading(true)
     axios.post(`${base_url}product/create` , formData , {
@@ -143,6 +157,7 @@ function Banner() {
       }
     }).then(res=>{
       toast.success(res.data.message)
+      getData()
     }).catch((error)=>{
       toast.error(t("error_message"))
       console.log(error)
@@ -152,12 +167,12 @@ function Banner() {
     })
   }
 
-
   // function to open delete modal
   const handleOpenDeleteModal = (row)=>{
     setRowData(row)
     setIsDeleteModalOpen(true)
   }
+
   // function to delete item
   const handleDelete = () => {
     setLoading(true);
@@ -202,6 +217,11 @@ function Banner() {
     setImage(null)
   }
 
+  // save rearrange
+  const saveReArrange = ()=>{
+    console.log("save re arrange good")
+  }
+
   useEffect(() => {
     getData();
   }, []);
@@ -217,6 +237,9 @@ function Banner() {
         addBtnValue={t("add_product")}
         addFunc={()=>setIsOpen(true)}
         showRearrange={true}
+        reArrangeFunc={()=>setIsReArrange((prev)=>!prev)}
+        reArrangeValue={isReArrange}
+        saveReArrangeFunc={saveReArrange}
       />
       {/* add modal */}
       <Modal
@@ -266,6 +289,7 @@ function Banner() {
             onClick={() => {
               ref.current.click();
             }}
+
           >
             <input
               onChange={handleImage}
@@ -274,12 +298,12 @@ function Banner() {
               style={{display: "none"}}
             />
             <div>
-              <Upload width='50px' color='rgb(13, 219, 13)' />
-              <h3>{t("image")}</h3>
+              <Upload width='50px' color='var(--primary-color)' />
+              <h3 style={{color:"var(--primary-color)"}}>{t("image")}</h3>
             </div>
             <p
               style={{
-                color: "rgb(13, 219, 13)",
+                color: "var(--primary-color)",
                 textTransform: "upperCase",
                 fontSize: "larger",
               }}
@@ -322,7 +346,7 @@ function Banner() {
               />
               <label className='toggle-label' for='toggle'></label>
             </div>
-            <p style={{fontSize: "20px", color: "rgb(43, 187, 43)"}}>
+            <p style={{fontSize: "20px", color: "var(--primary-color)"}}>
               {checked ? t("active") : t("un_active")}
             </p>
           </div>
@@ -495,7 +519,7 @@ function Banner() {
               />
               <label className='toggle-label' for='toggle'></label>
             </div>
-            <p style={{fontSize: "20px", color: "rgb(43, 187, 43)"}}>
+            <p style={{fontSize: "20px", color: "var(--primary-color)"}}>
               {rowData?.is_active ? t("active") : t("un_active")}
             </p>
           </div>
@@ -547,6 +571,7 @@ function Banner() {
         searchValue={searchValue}
         handleEditBtn={handleOpenEditModal}
         handleDeleteBtn = {handleOpenDeleteModal}
+        reArrangeValue={isReArrange}
       />
     </div>
   );

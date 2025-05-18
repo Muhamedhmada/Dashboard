@@ -64,6 +64,7 @@ function Banner() {
     })
     .then(res=>{
       toast(res.data.message)
+      getData()
     })
     .catch(error=>{
       toast.error("can't add the product")
@@ -99,6 +100,7 @@ function Banner() {
     }).then(res=>{
       toast.success(res.data.message)
       console.log(res.data.message)
+      getData()
     }).catch((error)=>{
       console.log(error)
     }).finally(res=>{
@@ -274,7 +276,7 @@ function Banner() {
               />
               <label className='toggle-label' for='toggle'></label>
             </div>
-            <p style={{fontSize: "20px", color: "rgb(43, 187, 43)"}}>
+            <p style={{fontSize: "20px", color: "var(--primary-color)"}}>
               {checked ? "Active" : "Not Active"}
             </p>
           </div> */}
@@ -352,7 +354,7 @@ function Banner() {
                           // disabled={loading}
                           onClick={() => handleOpenDeleteModal(item)}
                         >
-                          <Delete width='30px' color='rgb(13, 219, 13' />
+                          <Delete width='30px' color='var(--primary-color)' />
                         </button>
                       </div>
                     </td>

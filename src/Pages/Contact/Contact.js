@@ -153,7 +153,7 @@ function Contact() {
               />
               <label className='toggle-label' for='toggle-one'></label>
             </div>
-            <p style={{fontSize: "20px", color: "rgb(43, 187, 43)"}}>
+            <p style={{fontSize: "20px", color: "var(--primary-color)"}}>
               {data.enable_contact_us_form
                 ? t("contact_us_page_enabled")
                 : t("contact_us_page_unenabled")}
@@ -196,7 +196,7 @@ function Contact() {
               />
               <label className='toggle-label' for='toggle-two'></label>
             </div>
-            <p style={{fontSize: "20px", color: "rgb(43, 187, 43)"}}>
+            <p style={{fontSize: "20px", color: "var(--primary-color)"}}>
               {data.order_status ? t("active") : t("un_active")}
             </p>
           </div>
@@ -237,7 +237,7 @@ function Contact() {
               />
               <label className='toggle-label' for='toggle-three'></label>
             </div>
-            <p style={{fontSize: "20px", color: "rgb(43, 187, 43)"}}>
+            <p style={{fontSize: "20px", color: "var(--primary-color)"}}>
               {data.recaptcha_status ? t("active") : t("un_active")}
             </p>
           </div>

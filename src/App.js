@@ -17,6 +17,7 @@ import Contact from "./Pages/Contact/Contact";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import Orders from "./Pages/Orders/Orders";
+import Messages from "./Pages/Messages/Messages";
 import Users from "./Pages/Users/Users";
 import WebsiteHeader from "./Pages/WebsiteHeader/WebsiteHeader";
 import Footer from "./Pages/Footer/Footer";
@@ -60,6 +61,9 @@ function App() {
             } />
              <Route path="/orders" element={
             <Navbar contentComponent = {Orders}/>
+            } />
+            <Route path="/messages" element={
+            <Navbar contentComponent = {Messages}/>
             } />
             <Route path="/website_header" element={
             <Navbar contentComponent = {WebsiteHeader}/>

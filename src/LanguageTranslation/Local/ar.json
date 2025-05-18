@@ -26,7 +26,7 @@
   "show_all": "عرض الكل",
   "no_data": "لا يوجد بيانات",
   "manage_your_customers_orders": "قم باداره طلبات عملائك",
-  "Messages_sent_to_you_by_your_customers_through_your_website": "الرسائل المرسله اليك من عملائك عبر موقع الويب الخاص بك ",
+  "Messages_sent_to_you_by_your_customers_through_your_website": "الرسائل المرسله اليك من عملائك عبر موقع الويب ",
   "name": "الاسم",
   "phone": "رقم الموبايل",
   "email": "البريد الالكترونى",
@@ -140,5 +140,7 @@
   "remove":"حذف",
   "add_product":"اضافه منتج",
   "edit_product":"تعديل المنتج",
-  "error_message":"حدث خطأ ما"
+  "error_message":"حدث خطأ ما",
+  "pending":"قيدانتظار",
+  "canceled":"تم الالغاء"
 }

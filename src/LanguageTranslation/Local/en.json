@@ -26,7 +26,7 @@
   "show_all":"show all",
   "no_data":"no data",
   "manage_your_customers_orders":"manage your customers' orders",
-  "Messages_sent_to_you_by_your_customers_through_your_website":"Messages sent to you by your customers through your website",
+  "Messages_sent_to_you_by_your_customers_through_your_website":"Messages sent to you by customers through website",
   "name":"name",
   "phone":"phone",
   "email":"email",
@@ -140,5 +140,7 @@
   "remove":"remove",
   "add_product":"add product",
   "edit_product":"edit product",
-  "error_message":"something wrong"
+  "error_message":"something wrong",
+  "pending":"pending",
+  "canceled":"canceled"
 }

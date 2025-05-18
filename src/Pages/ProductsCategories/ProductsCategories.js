@@ -149,7 +149,9 @@ function ProductsCategories() {
       }
     }).then(res=>{
       toast.success(res.data.message)
-      getData()
+      setTimeout(() => {
+        getData()
+      }, 500);
     }).catch((error)=>{
       console.log(error)
     }).finally(res=>{
@@ -402,7 +404,7 @@ function ProductsCategories() {
               />
               <label className='toggle-label' for='toggle'></label>
             </div>
-            <p style={{fontSize: "20px", color: "rgb(43, 187, 43)"}}>
+            <p style={{fontSize: "20px", color: "var(--primary-color)"}}>
               {checked ? t("active") : t("un_active")}
             </p>
           </div>

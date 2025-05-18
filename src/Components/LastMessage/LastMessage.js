@@ -1,94 +1,173 @@
-import { Pagination, Table } from 'antd';
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import './LastMessage.css'
-function LastMessage(){
+import axios from "axios";
+import {useEffect, useState} from "react";
+import {useTranslation} from "react-i18next";
+import {useNavigate} from "react-router-dom";
+import {Call, Eye, Mail, User} from "../../Assets/SVGS";
+import Header from "../../CustomComponents/Header/Header";
+import Modal from "../../CustomComponents/Modal/Modal";
+import CustomTable from "../../CustomComponents/Table/Table";
+import i18n from "../../LanguageTranslation/i18";
+import "./LastMessage.css";
+function LastMessage() {
+  const nav = useNavigate();
 
-  const {t}=useTranslation()
+  const lang = i18n.language;
+  const {t} = useTranslation();
 
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 5;
-
-  // Handle page change
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
-  const columns = [
-    // {
-    //   title: "Column 1",
-    //   dataIndex: "col1",
-    //   key: "col1",
-    // },
-    // {
-    //   title: "Column 2",
-    //   dataIndex: "col2",
-    //   key: "col2",
-    // },
+  const tableHeaders = [
+    `${t("name")}`,
+    `${t("order_status")}`,
+    `${t("tools")}`,
   ];
+  const tableKeys = ["name", "order_status"];
+  const [rowData, setRowData] = useState();
 
-  // Empty data source
-  const data = [];
-  return(
-    <div className="lastMessage-container">
-      <div className="lastMessage-content">
-        <div className="header">
-          <div className="info">
-            <h2> {t("last_week_messages")}  </h2>
-            <p>{t("Messages_sent_to_you_by_your_customers_through_your_website")}</p>
-          </div>
-          <button>{t("show_all")}</button>
-        </div>
-        <div className="data">
+  // to open and close modal
+  const [isShowProductInfo, setIsShowProductInfo] = useState(false);
 
-        {/* <Table
-        columns={columns}
-        dataSource={data}
-        pagination={false} // Disable default pagination
-        locale={{
-          emptyText: "لا يوجد بيانات", // Custom "No Data" message
-        }}
-        bordered
-        style={{ width: "100%", margin: "0 auto" }}
-      /> */}
-      {/* Custom Pagination */}
-      <div style={{ marginTop: "10px", textAlign: "right" }}>
-        {data.length > 0 ? (
-          <>
-          <Table
-          columns={columns}
-          dataSource={data}
-          pagination={false} // Disable default pagination
-          locale={{
-            emptyText: "لا يوجد بيانات", // Custom "No Data" message
-          }}
-          bordered
-          style={{ width: "100%", margin: "0 auto" }}
-          />
-          <Pagination
-            current={currentPage}
-            total={data.length}
-            pageSize={pageSize}
-            onChange={handlePageChange}
-            showSizeChanger={false}
-            />
-            </>
-        ) : (
-          <>
-          {t("no_data")} 
-          <Pagination
-            current={1}
-            total={0} // Show no pages when no data exists
-            pageSize={pageSize}
-            disabled
-            showSizeChanger={false}
-            />
-            </>
-        )}
-        </div>
+  const [data, setData] = useState();
+
+  // token
+  let token = localStorage.getItem("token");
+
+  useEffect(() => {
+    axios
+      .get("https://xproject.shaarapp.com/api/order/list?page=1&per_page=12", {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the headers
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        setData(res.data.data.orders);
+      })
+      .catch((error) => {});
+  }, []);
+
+  return (
+    <div className='lastMessage-container'>
+      <div className='lastMessage-content orders'>
+        <Header
+          header={t("messages")}
+          pragraph={t(
+            "Messages_sent_to_you_by_your_customers_through_your_website"
+          )}
+          dataLength={data?.length}
+          addBtnValue={t("show_all")}
+          addFunc={() => nav("/messages")}
+        />
+        <div className='data'>
+          <CustomTable
+            tableData={data}
+            tableHeaders={tableHeaders}
+            tableKeys={tableKeys}
+          >
+            {data?.map((item, index) => {
+              return (
+                <tr>
+                  <td
+                    style={{display: "flex", alignItems: "center", gap: "5px"}}
+                  >
+                    <div className='icon'>
+                      <User width='30px' color='black' />
+                    </div>
+                    <div>
+                      <p>{item.name}</p>
+                      <p style={{textDecoration: "underline"}}>{item.email}</p>
+                    </div>
+                  </td>
+                  <td>
+                    <button
+                      style={{
+                        padding: "5px",
+                        backgroundColor: "var(--fifth-color)",
+                        color: "var(--primary-color)",
+                      }}
+                    >
+                      {item.order_status}
+                    </button>
+                  </td>
+                  <td>
+                    <div
+                      className='icon'
+                      onClick={() => {
+                        setRowData(item);
+                        setIsShowProductInfo(true);
+                      }}
+                    >
+                      <Eye width='30px' color='balck' />
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
+          </CustomTable>
+
+          {/* show product info modal */}
+          <Modal
+            isOpen={isShowProductInfo}
+            onClose={() => {
+              setIsShowProductInfo(false);
+            }}
+            modalTitle='order details'
+          >
+            <div className='client-details'>
+              <div>
+                <h3>client:</h3>
+                <div style={{display: "flex", justifyContent: "space-between"}}>
+                  <div
+                    style={{display: "flex", alignItems: "center", gap: "10px"}}
+                  >
+                    <div className='icon'>
+                      <User width='25px' color='rgb(202, 184, 184)' />
+                    </div>
+                    <h4>{rowData?.name}</h4>
+                  </div>
+                  <div className='links'>
+                    <div className='icon'>
+                      <a href='/#'>
+                        <Mail color='black' width='20px' />
+                      </a>
+                    </div>
+                    <div className='icon'>
+                      <a href='/#'>
+                        <Call color='black' width='20px' />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3>recieve date</h3>
+                <p>{rowData?.created_at}</p>
+              </div>
+              <div>
+                <h3>product</h3>
+                <p>{rowData?.product.title[lang]}</p>
+              </div>
+              <div>
+                <h3>client notes</h3>
+                <p>{rowData?.message || "no"}</p>
+              </div>
+              <div>
+                <h3>
+                  order status:
+                  <button
+                    style={{
+                      padding: "5px",
+                      backgroundColor: "var(--fifth-color)",
+                      color: "var(--primary-color)",
+                    }}
+                  >
+                    {rowData?.order_status}
+                  </button>
+                </h3>
+              </div>
+            </div>
+          </Modal>
         </div>
       </div>
     </div>
-  )
+  );
 }
-export default LastMessage
+export default LastMessage;

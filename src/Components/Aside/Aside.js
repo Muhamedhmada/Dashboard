@@ -5,6 +5,10 @@ import {AngleLeft, AngleRight} from "../../Assets/SVGS";
 import {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import i18n from "../../LanguageTranslation/i18";
+
+
+import logo from "../../Assets/Images/logo_converted.jpg";
+
 function Aside(props) {
 
   const nav = useNavigate()
@@ -27,32 +31,33 @@ function Aside(props) {
         <aside className={props.close ? "closed" : "opened"}>
           <div className='image'>
             <img
-              src='https://last-version-of-store.vercel.app/static/media/logo.0aac528f8ddea5e58747.png'
+              src={logo}
+              style={{height:"78px", width:"238px"}}
               alt='logo'
             />
           </div>
           <ul>
             <li>
               <a href='/home'>
-                <Screen width='25px' color='rgb(43, 187, 43)' />
+                <Screen width='25px' color='var(--primary-color)' />
                 {t("control_panal")}
               </a>
             </li>
             <li>
               <a href='/orders'>
-                <Bag width='25px' color='rgb(43, 187, 43)' />
+                <Bag width='25px' color='var(--primary-color)' />
                 {t("orders")}
               </a>
             </li>
             <li>
-              <a href='/home'>
-                <Mail width='25px' color='rgb(43, 187, 43)' />
+              <a href='/messages'>
+                <Mail width='25px' color='var(--primary-color)' />
                 {t("messages")}
               </a>
             </li>
             <li className='website' onClick={handleIcon}>
-              <a href='/#' onClick={(e)=>e.preventDefault()} style={{color:showLinks?"rgb(43, 187, 43)":"black"}}>
-                <World width='25px' color='rgb(43, 187, 43)' />
+              <a href='/#' onClick={(e)=>e.preventDefault()} style={{color:!showLinks?"var(--primary-color)":"black"}}>
+                <World width='25px' color='var(--primary-color)' />
                 {t("web_site")}
               </a>
               <div className='icon'>
@@ -65,17 +70,16 @@ function Aside(props) {
               </div>
             </li>
             <ul className={showLinks ? "webLinks open" : "webLinks"}>
-              {/* <li><User width="25px" color="rgb(43, 187, 43)" /> website header</li> */}
-              <li onClick={()=>nav('/website_header')}><Header width="20px" color="rgb(43, 187, 43)" /> {t("website_header")}</li>
-              <li onClick={()=>nav('/banner')}><Image width="20px" color="rgb(43, 187, 43)" /> {t("banners")}</li>
-              <li onClick={()=>nav('/productsCategories')}><Category width="20px" color="rgb(43, 187, 43)" />{t("product_categories")}</li>
-              <li onClick={()=>nav('/Product')}><Cart width="20px" color="rgb(43, 187, 43)" /> {t("products")}</li>
-              <li onClick={()=>nav('/contact')}><Mail width="20px" color="rgb(43, 187, 43)" />{t("contact_us")}</li>
-              <li onClick={()=>nav('/footer')}><Footer width="20px" color="rgb(43, 187, 43)" />{t("footer")}</li>
+              <li onClick={()=>nav('/website_header')}><Header width="20px" color="var(--primary-color)" /> {t("website_header")}</li>
+              <li onClick={()=>nav('/banner')}><Image width="20px" color="var(--primary-color)" /> {t("banners")}</li>
+              <li onClick={()=>nav('/productsCategories')}><Category width="20px" color="var(--primary-color)" />{t("product_categories")}</li>
+              <li onClick={()=>nav('/Product')}><Cart width="20px" color="var(--primary-color)" /> {t("products")}</li>
+              <li onClick={()=>nav('/contact')}><Mail width="20px" color="var(--primary-color)" />{t("contact_us")}</li>
+              <li onClick={()=>nav('/footer')}><Footer width="20px" color="var(--primary-color)" />{t("footer")}</li>
             </ul>
             <li>
               <a href='/user'>
-                <Users width='25px' color='rgb(43, 187, 43)' />
+                <Users width='25px' color='var(--primary-color)' />
                 {t("users")}
               </a>
             </li>

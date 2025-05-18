@@ -78,6 +78,7 @@ function Users() {
     })
     .then(res=>{
       toast(res.data.message)
+      getData()
     })
     .catch(error=>{
       toast.error(error.response.data.errors.message)
@@ -99,7 +100,7 @@ function Users() {
   // function to edit the target item
 
   const requestedEditData ={
-    product_id:rowData?.product_id,
+    admin_id:rowData?.admin_id,
     is_active:rowData?.is_active,
   }
   const handleEdit = ()=>{
@@ -107,7 +108,7 @@ function Users() {
     console.log(checked)
     console.log(rowData)
     setLoading(true)
-    axios.put(`${base_url}product/update`,requestedEditData,{
+    axios.put(`${base_url}admin/update`,requestedEditData,{
       headers:{
         "Authorization": `Bearer ${token}`, // Add token in Authorization header
       }
@@ -141,7 +142,7 @@ function Users() {
       }
     })
       .then((res) => {
-        toast.success("product deleted successfully");
+        toast.success("item deleted successfully");
         console.log(res);
         getData();
       })
@@ -226,9 +227,8 @@ function Users() {
                 }
               >
                 <option value='admin'>admin</option>
-                <option value='user'>user</option>
-                <option value='admin'>admin</option>
-                <option value='admin'>user</option>
+                <option value='editor'>editor</option>
+                <option value='sales_manager'>sales_manager</option>
               </select>
             </div>
             <div className="specialInput passInput">
@@ -259,7 +259,7 @@ function Users() {
               />
               <label className='toggle-label' for='toggle'></label>
             </div>
-            <p style={{fontSize: "20px", color: "rgb(43, 187, 43)"}}>
+            <p style={{fontSize: "20px", color: "var(--primary-color)"}}>
               {checked ? "Active" : "Not Active"}
             </p>
           </div>
@@ -337,9 +337,9 @@ function Users() {
                 setRowData((prev) => ({...prev, role: e.target.value}))
               }
               >
-                <option value='super admin'>super admin</option>
+                <option value='sales_manager'>sales_manager</option>
                 <option value='admin'>admin</option>
-                <option value='user'>user</option>
+                <option value='editor'>editor</option>
               </select>
             </div>
 
@@ -369,7 +369,7 @@ function Users() {
               />
               <label className='toggle-label' for='toggle'></label>
             </div>
-            <p style={{fontSize: "20px", color: "rgb(43, 187, 43)"}}>
+            <p style={{fontSize: "20px", color: "var(--primary-color)"}}>
               {checked ? "Active" : "Not Active"}
             </p>
           </div>

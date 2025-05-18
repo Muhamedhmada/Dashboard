@@ -6,4 +6,14 @@
   --fifth-color:rgb(245, 239, 229);
   --input-border-color:rgb(202, 184, 184);
   --input-color:black;
+  /* fffffffffff */
+
+  --primary-color: rgb(16, 130, 212); /* أزرق حيوي */
+  --secondary-color: #1a1a2e; /* أزرق داكن */
+  --third-color: #ffffff; /* أبيض */
+  --fourth-color: #d9e3f0; /* رمادي مائل للأزرق - أكثر تناسقًا */
+  --fifth-color: #cce7ff; /* أزرق فاتح بدلاً من البيج */
+  --input-border-color: #a0a0a0; /* رمادي متوسط */
+  --input-color: #333333; /* رمادي غامق */
+
 }

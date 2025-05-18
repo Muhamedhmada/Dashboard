@@ -155,6 +155,7 @@ function Banner() {
       }
     }).then(res=>{
       toast(res.message)
+      getBanners()
     }).catch((error)=>{
       console.log(error)
     })
@@ -308,12 +309,12 @@ function Banner() {
               style={{display: "none"}}
             />
             <div>
-              <Upload width='50px' color='rgb(13, 219, 13)' />
+              <Upload width='50px' color='var(--primary-color)' />
               <h3 style={{textAlign:"center"}}>{t("image")}</h3>
             </div>
             <p
               style={{
-                color: "rgb(13, 219, 13)",
+                color: "var(--primary-color)",
                 textTransform: "upperCase",
                 fontSize: "larger",
               }}
@@ -362,7 +363,7 @@ function Banner() {
               />
               <label className='toggle-label' for='toggle'></label>
             </div>
-            <p style={{fontSize: "20px", color: "rgb(43, 187, 43)"}}>
+            <p style={{fontSize: "20px", color: "var(--primary-color)"}}>
               {checked ? t("active") : t("un_active")}
             </p>
           </div>
@@ -577,7 +578,7 @@ function Banner() {
               />
               <label className='toggle-label' for='toggle'></label>
             </div>
-            <p style={{fontSize: "20px", color: "rgb(43, 187, 43)"}}>
+            <p style={{fontSize: "20px", color: "var(--primary-color)"}}>
               {checked ? "Active" : "Not Active"}
             </p>
           </div>

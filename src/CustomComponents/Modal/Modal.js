@@ -29,7 +29,7 @@ import { Exit } from "../../Assets/SVGS";
                 <input className="toggle-input" onClick={()=>setChecked((prev)=>!prev)} checked = {checked} id="toggle" type="checkbox" />
                 <label className="toggle-label" for="toggle"></label>
               </div>
-              <p style={{fontSize:"20px" , color:"rgb(43, 187, 43)"}}>{checked?t("active"):t("un_active")}</p>
+              <p style={{fontSize:"20px" , color:"var(--primary-color)feg"}}>{checked?t("active"):t("un_active")}</p>
             </div>
             <div className="btns">
               <button onClick={handleCancel}>{CancelBtn}</button>

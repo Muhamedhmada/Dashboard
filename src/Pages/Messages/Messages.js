@@ -2,38 +2,43 @@
 import Modal from "../../CustomComponents/Modal/Modal";
 import {useEffect, useState} from "react";
 import {Call, Eye, Mail, User} from "../../Assets/SVGS";
-import "./Orders.css";
+import "./Messages.css";
 import {base_url} from "../../Assets/Base_Url";
 import axios from "axios";
 import CustomTable from "../../CustomComponents/Table/Table";
 import {ToastContainer} from "react-toastify";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import i18n from "../../LanguageTranslation/i18";
 import Header from "../../CustomComponents/Header/Header";
-function Orders() {
+function Messages() {
   // get token
-  const token = localStorage.getItem("token")  //token
+  const token = localStorage.getItem("token"); //token
   // to get the lang
-  const {t} = useTranslation()
-  const lang = i18n.language
-  // table data 
-  const tableHeaders = [`${t('name')}`, `${t('phone')}` ,`${t('created_date')}`,`${t('order_status')}` , `${t('tools')}`];
-  const tableKeys = ["name" , "phone","created_at","order_status"];
+  const {t} = useTranslation();
+  const lang = i18n.language;
+  // table data
+  const tableHeaders = [
+    `${t("name")}`,
+    `${t("phone")}`,
+    `${t("created_date")}`,
+    `${t("tools")}`,
+  ];
+  const tableKeys = ["name", "phone", "created_at"];
   // to open and close modal
-  const [isShowProductInfo , setIsShowProductInfo] = useState(false)
+  const [isShowProductInfo, setIsShowProductInfo] = useState(false);
   // to set the data
   const [data, setData] = useState([]);
-  const [filteredData , setFilteredData] = useState()
-  const [originalData , setOriginalData] = useState()
+  const [filteredData, setFilteredData] = useState();
+  const [originalData, setOriginalData] = useState();
   // loading
-  const [loading , setLoading] = useState(false)
-  const [searchValue , setSearchValue] = useState("")
+  const [loading, setLoading] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
   // row data
-  const [rowData , setRowData] = useState()
+  const [rowData, setRowData] = useState();
 
   // function to get data
   const getData = () => {
-    setLoading(true)
+    setLoading(true);
     axios
       .get(`${base_url}order/list?page=1&per_page=12`, {
         headers: {
@@ -52,19 +57,19 @@ function Orders() {
   };
 
   // function to search using name
-  useEffect(()=>{
+  useEffect(() => {
     if (searchValue !== "") {
       const filteredData = data?.filter((item) =>
         item.name.toLowerCase().includes(searchValue.toLowerCase())
       );
-      setFilteredData(filteredData.length>0?filteredData:originalData)
-    }else{
-      setFilteredData(data)
+      setFilteredData(filteredData.length > 0 ? filteredData : originalData);
+    } else {
+      setFilteredData(data);
     }
-  },[data , searchValue])
+  }, [data, searchValue]);
   useEffect(() => {
-    if(Array.isArray(data)){
-      setOriginalData(data)
+    if (Array.isArray(data)) {
+      setOriginalData(data);
     }
     getData();
   }, []);
@@ -73,9 +78,11 @@ function Orders() {
     <div className='banner-container orders'>
       <ToastContainer />
       <Header
-        header={t("orders")}
+        header={t("messages")}
         dataLength={data?.length}
-        pragraph={t("manage_your_customers_orders")}
+        pragraph={t(
+          "Messages_sent_to_you_by_your_customers_through_your_website"
+        )}
         showSearch={true}
         searchFunc={(e) => setSearchValue(e)}
       />
@@ -139,8 +146,8 @@ function Orders() {
               <button
                 style={{
                   padding: "5px",
-                  backgroundColor: "var(--fifth-color)",
-                  color: "var(--primary-color)",
+                  backgroundColor: "#eee",
+                  color: "rgb(13, 219, 13)",
                 }}
               >
                 {rowData?.order_status}
@@ -197,24 +204,13 @@ function Orders() {
                   })}
                 </td>
                 <td>
-                  <button
-                    style={{
-                      padding: "5px",
-                      backgroundColor: "var(--fifth-color)",
-                      color: "var(--primary-color)",
-                    }}
-                  >
-                    {t(item.order_status)}
-                  </button>
-                </td>
-                <td>
                   <div
                     className='eye-icon'
                     onClick={() => {
                       setRowData(item);
                       setIsShowProductInfo(true);
                     }}
-                    style={{ borderRadius: "0"}}
+                    style={{borderRadius: "0"}}
                   >
                     <Eye width='30px' color='balck' />
                   </div>
@@ -227,4 +223,4 @@ function Orders() {
     </div>
   );
 }
-export default Orders;
+export default Messages;

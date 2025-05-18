@@ -48,7 +48,7 @@ function RichText({header , saveFunc , checked , pageActive , pageUnActive , han
             />
             <label className='toggle-label' for='toggle-one'></label>
           </div>
-          <p style={{fontSize: "16px", color: "rgb(43, 187, 43)"}}>
+          <p style={{fontSize: "16px", color: "var(--primary-color)"}}>
             {checked ? t(pageActive) : t(pageUnActive)}
           </p>
         </div>
